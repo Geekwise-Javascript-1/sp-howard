@@ -42,7 +42,7 @@ alert(bool);
 
 var answer = prompt("Type something.")
 
-if (answer.length <= 0) {
+if (answer.trim().length === 0) {
     alert("Come on! You gotta type SOMETHING");
 } else {
   alert(answer);
