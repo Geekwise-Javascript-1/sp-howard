@@ -88,11 +88,15 @@ function edit() {
   newInput.setAttribute('class', 'editInput');
 
   this.parentNode.appendChild(newInput);
+
+  // Sets focus, then removes value, and re-adds it so that the cursor appears at the end of the value and not the beginning.
   newInput.focus();
   newInput.value = '';
   newInput.value = itemValue;
+
   this.style.display = 'none';
 
+// Set new value for the list item if the enter button is pressed
   newInput.onkeydown = function() {
     if (event.keyCode == 13) {
       itemValue = newInput.value;
@@ -102,6 +106,7 @@ function edit() {
     }
   }
 
+// If the input box loses focus, the value is untouched and the input box is removed
   newInput.addEventListener('blur', function() {
     this.parentNode.removeChild(newInput);
     item.style.display = 'block';
